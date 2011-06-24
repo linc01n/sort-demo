@@ -1,0 +1,47 @@
+﻿<html>
+  <head>
+    <title>
+      Sort
+    </title>
+    <script src="jquery-1.6.1.min.js"></script>
+  </head>
+  <body>
+    <div id="result">
+    </div>
+  </body>
+  <script>
+    var numbers=[];
+    for(var i = 0; i < 10; i++){
+      numbers[i]=Math.floor(Math.random()*1001);
+    }
+    console.log(numbers);
+    function merge(left, right){
+      var result=[];
+      var l=0;
+      var r=0;
+	  console.log("left:"+left);
+	  console.log("right:"+right);
+	  
+	  console.log(result);
+      return result;
+    }
+    function m_sort(a){
+      if(a.length <= 1){
+        return a;
+      }
+      var left=[];
+      var right=[];
+      var result=[];
+      var mid = parseInt(a.length/2);
+      for(var i = 0; i < mid; i++){
+         left.push(a[i]);
+         right.push(a[mid-i]);
+      }
+      left = m_sort(left);
+      right = m_sort(right);
+      result = merge(left,right);
+      return result;
+    }
+    console.log(m_sort(numbers));
+  </script>
+</html>
